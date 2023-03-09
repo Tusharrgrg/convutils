@@ -7,24 +7,28 @@ export default function TextField(props) {
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to UpperCase!", "success");
     }
 
     // this function convert text to uppercase letters
     const handleLoClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to LowerCase!", "success");
     }
 
     // this function remove spaces from text 
     const handleSpClick = () => {
         let newText = text.replaceAll(" ", "");
         setText(newText);
+        props.showAlert("Removed spaces!", "success");
     }
 
-    // this function remove spaces from text 
+    // this function clear text 
     const handleClearClick = () => {
         let newText = '';
         setText(newText);
+        props.showAlert("Clear text!", "success");
     }
 
     const handleOnChange = (event) => {
