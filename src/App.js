@@ -1,14 +1,26 @@
+import { useState } from "react";
 import "./App.css";
 // import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextField from "./components/TextField";
 
 function App() {
+
+  const [mode,setMode] = useState('light');
+
+  const toggleMode =()=>{
+    if(mode === 'light'){
+      setMode('dark');
+      document.body.style.backgroundColor = '#042743';
+    }else{
+      setMode('light');;
+      document.body.style.backgroundColor = 'white';
+    }
+  }
   return (
     <>
-      {/* <Navbar title ="ConvUtils" about = "About"/> */}
-      <Navbar title = "ConvUtils"/>
-      <TextField heading ="Enter your text here"/>
+      <Navbar title = "ConvUtils" mode = {mode} toggleMode = {toggleMode}/>
+      <TextField heading ="Enter your text here" mode = {mode}/>
       {/* <About/> */}
     </>
   );
