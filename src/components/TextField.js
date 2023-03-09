@@ -20,6 +20,12 @@ export default function TextField(props) {
         let newText = text.replaceAll(" ","");
         setText(newText);
     }
+
+     // this function remove spaces from text 
+     const handleClearClick = ()=>{
+        let newText = '';
+        setText(newText);
+    }
     
     const handleOnChange = (event)=>{
         setText(event.target.value);
@@ -37,6 +43,7 @@ export default function TextField(props) {
                 <button className="btn btn-outline-success mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
                 <button className="btn btn-outline-success mx-2" onClick={handleSpClick}>Remove spaces</button>
                 <button className="btn btn-outline-success mx-2" onClick={handleLoClick}>Convert to LowerCase</button>
+                <button className="btn btn-outline-success mx-2" onClick={handleClearClick}>Clear text</button>
             </div>
 
             <div className="container my-3">
