@@ -43,25 +43,24 @@ export default function TextField(props) {
         <>
             <div className="container my-3" style={styles}>
                 <h1 style={styles}>{props.heading}</h1>
-                <div class="mb-3">
+                <div className="mb-3">
                     <textarea className="form-control" style={{
-                        backgroundColor: props.mode === 'light' ? 'white' : '#042743', color: props.mode === 'light' ? 'black' : 'white'
+                        backgroundColor: props.mode === 'light' ? 'white' : 'rgb(36 74 104)', color: props.mode === 'light' ? 'black' : 'white'
                     }} value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8"></textarea>
                 </div>
-                <button className="btn btn-primary mx-2"  onClick={handleUpClick}>Convert to UpperCase</button>
-                <button className="btn btn-primary mx-2" onClick={handleSpClick}>Remove spaces</button>
-                <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to LowerCase</button>
-                <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear text</button>
+                <button  disabled = {text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>Convert to UpperCase</button>
+                <button  disabled = {text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleSpClick}>Remove spaces</button>
+                <button  disabled = {text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLoClick}>Convert to LowerCase</button>
+                <button  disabled = {text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleClearClick}>Clear text</button>
             </div>
 
             <div className="container my-3" style={styles}>
                 <h2 >Your Text Summary</h2>
-                <p className=""><span className="fw-bold">{text.split(" ").filter((str) => str !== '').length}</span> Words and {text.length} Characters</p>
-                <p >{0.008 * text.split(" ").length} minutes read time</p>
+                <p className=""><span className="fw-bold">{text.split(/\s+/).filter((str) => str !== '').length}</span> Words and {text.length} Characters</p>
+                <p >{0.008 * text.split(/\s+/).filter((str) => str !== '').length} minutes read time</p>
                 <h3>Preview</h3>
-                <p >{text}</p>
+                <p >{text.length>0?text:"Nothing to preview"}</p>
             </div>
-
         </>
     );
 }
