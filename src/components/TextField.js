@@ -56,7 +56,7 @@ export default function TextField(props) {
 
             <div className="container my-3" style={styles}>
                 <h2 >Your Text Summary</h2>
-                <p className=""><span className="fw-bold">{text.split(" ").length}</span> Words and {text.length} Characters</p>
+                <p className=""><span className="fw-bold">{text.split(" ").filter((str) => str !== '').length}</span> Words and {text.length} Characters</p>
                 <p >{0.008 * text.split(" ").length} minutes read time</p>
                 <h3>Preview</h3>
                 <p >{text}</p>

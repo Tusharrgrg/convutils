@@ -1,9 +1,14 @@
 import { useState } from "react";
 import "./App.css";
 import Alert from "./components/Alert";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextField from "./components/TextField";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route} from "react-router-dom";
+
 
 function App() {
 
@@ -33,12 +38,17 @@ function App() {
     }
   }
 
+
   return (
     <>
+    <Router>
       <Navbar title = "ConvUtils" mode = {mode} toggleMode = {toggleMode}/>
       <Alert alert = {alert}/>
-      <TextField heading ="Enter your text here" mode = {mode} showAlert = {showAlert}/>
-      {/* <About/> */}
+      <Routes>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/" element={<TextField heading ="Enter your text here" mode = {mode} showAlert = {showAlert}/>}/>
+      </Routes>
+    </Router>
     </>
   );
 }

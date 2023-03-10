@@ -3,8 +3,8 @@ import React, {useState} from 'react'
 export default function About() {
 
     const [styles , setStyles] = useState({
-        backgroundColor : 'black',
-        color :'white',
+        backgroundColor : 'white',
+        color :'black',
     });
 
 
